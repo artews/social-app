@@ -1,12 +1,8 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <footer class="footer">
-    <a v-for="index in 4" :key="index" href="#">
-      Icon
-    </a>
+    <a v-for="index in 4" :key="index" href="#"> Icon </a>
   </footer>
 </template>
 

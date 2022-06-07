@@ -1,13 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { RouterView } from 'vue-router';
+import TheFooter from './TheFooter.vue';
+import TheHeader from './TheHeader.vue';
+</script>
 
 <template>
-  <header class="header">
-    <a href="#"> Home Icon </a>
+  <TheHeader />
 
-    <div>Logo</div>
+  <main>
+    <RouterView />
+  </main>
 
-    <a href="#"> Profile Icon </a>
-  </header>
+  <TheFooter />
 </template>
 
 <style scoped>

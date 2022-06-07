@@ -1,24 +1,16 @@
 <script setup lang="ts">
-import { RouterView } from "vue-router";
-import TheHeader from "./components/TheHeader.vue";
-import TheFooter from "./components/TheFooter.vue";
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <TheHeader />
-
-  <main>
-    <RouterView />
-  </main>
-
-  <TheFooter />
+  <RouterView />
 </template>
 
 <style>
-@import "@/assets/base.css";
+@import '@/assets/base.css';
 
 #app {
-/* TODO: Set a max width here or use media queries? */
+  /* TODO: Set a max width here or use media queries? */
   max-width: 1007px;
   margin: 0 auto;
   font-weight: normal;
