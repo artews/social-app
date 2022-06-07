@@ -1,12 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import RouteName from '@/router/RouteName';
+import { RouterLink } from 'vue-router';
+</script>
 
 <template>
   <header class="header">
-    <a href="#"> Home Icon </a>
+    <RouterLink :to="{ name: RouteName.Feed }">Home Icon</RouterLink>
 
     <div>Logo</div>
 
-    <a href="#"> Profile Icon </a>
+    <a href="#">Profile Icon</a>
   </header>
 </template>
 

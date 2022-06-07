@@ -13,7 +13,6 @@ module.exports = {
     'vue/setup-compiler-macros': true,
   },
   rules: {
-    // quotes: ['error', 'single'],
-    'prettier/prettier': ['error', { singleQuote: true }],
+    'prettier/prettier': ['error', { singleQuote: true, endOfLine: 'auto' }],
   },
 };
