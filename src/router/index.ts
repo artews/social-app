@@ -7,6 +7,7 @@ import {
 import TheNavigation from '../components/TheNavigation.vue';
 import FeedView from '../views/FeedView.vue';
 import LoginView from '../views/LoginView.vue';
+import RegisterView from '../views/RegisterView.vue';
 import RouteName from './RouteName';
 
 const router = createRouter({
@@ -28,19 +29,28 @@ const router = createRouter({
       name: RouteName.Login,
       component: LoginView,
     },
+    {
+      path: '/register',
+      name: RouteName.Register,
+      component: RegisterView,
+    },
   ],
 });
+const unauthenticatedRoutes = [RouteName.Login, RouteName.Register];
 
 // EXPL: Global navigation guard
 router.beforeEach((to) => {
   let route: boolean | RouteLocationRaw = true;
   const store = useAuthenticationStore();
+  const isUnauthenticatedRoute = unauthenticatedRoutes.includes(
+    to.name as RouteName
+  );
 
-  // EXPL: Unauthenticated users trying to access non-login page, redirect to login
-  if (to.name !== RouteName.Login && !store.isAuthenticated) {
+  // EXPL: Unauthenticated users trying to access "authentication required" pages, redirect to login
+  if (!isUnauthenticatedRoute && !store.isAuthenticated) {
     route = { name: RouteName.Login };
-  } else if (to.name === RouteName.Login && store.isAuthenticated) {
-    // EXPL: Authenticated users trying to access login page, redirect to feed
+  } else if (isUnauthenticatedRoute && store.isAuthenticated) {
+    // EXPL: Authenticated users trying to access "authentication not required" pages, redirect to feed
     route = { name: RouteName.Feed };
   }
 

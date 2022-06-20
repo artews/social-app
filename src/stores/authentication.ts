@@ -1,3 +1,4 @@
+import { Auth } from 'aws-amplify';
 import { defineStore } from 'pinia';
 
 type User = {
@@ -16,8 +17,14 @@ export const useAuthenticationStore = defineStore('authentication', {
 
   actions: {
     // TODO: Actually authenticate a user and store the data in localStorage
-    authenticate() {
-      this.user = { id: 1, name: 'Test User' };
+    async authenticate(username: string, password: string) {
+      try {
+        const user = await Auth.signIn(username, password);
+
+        this.user = user;
+      } catch (error) {
+        console.log('[AUTHENTICATE]', { error });
+      }
     },
   },
 });

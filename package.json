@@ -11,7 +11,10 @@
     "lint": "eslint . --ext .vue,.js,.cjs,.ts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "aws-amplify": "^4.3.26",
     "pinia": "^2.0.14",
+    "unplugin-vue-components": "^0.19.6",
+    "vant": "^3.5.1",
     "vue": "^3.2.36",
     "vue-router": "^4.0.15"
   },
